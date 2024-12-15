@@ -5,17 +5,21 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
 import { DarkModeProvider } from "./utils/UseDarkMode";
+import { Provider } from "react-redux";
+import { store } from "./core/store";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <DarkModeProvider>
-        <App />
-      </DarkModeProvider>
-    </BrowserRouter>
+    <Provider store={store}>
+      <BrowserRouter>
+        <DarkModeProvider>
+          <App />
+        </DarkModeProvider>
+      </BrowserRouter>
+    </Provider>
   </React.StrictMode>
 );
 
